@@ -7,11 +7,12 @@ public class Food extends Product {
     private final String productionDate;
     private final String expirationDate;
 
-    public Food(int productID, String productName, int productPrice, ProductCategory productCategory, String productionDate, String expiration) {
-        super(productID, productName, productPrice, productCategory);
+    public Food(String productName, int productPrice, ProductCategory productCategory, int numOfInventory, String productionDate, String expirationDate) {
+        super(productName, productPrice, productCategory, numOfInventory);
         this.productionDate = productionDate;
-        this.expirationDate = expiration;
+        this.expirationDate = expirationDate;
     }
+
     public String getProductionDate(){
         return productionDate;
     }

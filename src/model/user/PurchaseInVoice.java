@@ -5,13 +5,15 @@ import model.product.Product;
 import java.util.ArrayList;
 
 public class PurchaseInVoice {
-    private final int productID;
+    private final int puchaseID;
+    private static int id = 1;
     private final String date;
     private final int price;
     private ArrayList<Product> boughtProducts = new ArrayList<>();
 
     public PurchaseInVoice(int productID, String date, int price) {
-        this.productID = productID;
+        this.puchaseID = id;
+        id++;
         this.date = date;
         this.price = price;
     }
@@ -21,7 +23,7 @@ public class PurchaseInVoice {
     }
 
     public int getProductID(){
-        return productID;
+        return puchaseID;
     }
     public String getDate(){
         return date;

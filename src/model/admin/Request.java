@@ -5,5 +5,5 @@ import model.user.User;
 public class Request {
     private User user;
     private String commentText;
-    RequestAnswer requestAnswer;
+    private String requestAnswer;
 }

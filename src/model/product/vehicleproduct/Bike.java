@@ -5,8 +5,8 @@ import model.product.ProductCategory;
 public class Bike extends Vehicle {
     BikeType bikeType;
 
-    public Bike(int productID, String productName, int productPrice, ProductCategory productCategory, String companyName, BikeType bikeType) {
-        super(productID, productName, productPrice, productCategory, companyName);
+    public Bike(String productName, int productPrice, ProductCategory productCategory, int numOfInventory, String companyName, BikeType bikeType) {
+        super(productName, productPrice, productCategory, numOfInventory, companyName);
         this.bikeType = bikeType;
     }
 }

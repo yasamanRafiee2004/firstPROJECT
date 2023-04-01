@@ -5,8 +5,8 @@ import model.product.ProductCategory;
 public class Pen extends Stationary {
     String color;
 
-    public Pen(int productID, String productName, int productPrice, ProductCategory productCategory, String country, String color) {
-        super(productID, productName, productPrice, productCategory, country);
+    public Pen(String productName, int productPrice, ProductCategory productCategory, int numOfInventory, String country, String color) {
+        super(productName, productPrice, productCategory, numOfInventory, country);
         this.color = color;
     }
 }

@@ -3,11 +3,11 @@ package model.product.digitalproduct;
 import model.product.ProductCategory;
 import model.product.digitalproduct.Digital;
 
-public class InfoStorageEquipment extends Digital {
+public abstract class InfoStorageEquipment extends Digital {
     private final int capacity;
 
-    public InfoStorageEquipment(int productID, String productName, int productPrice, ProductCategory productCategory, int weight, int dimensions, int capacity) {
-        super(productID, productName, productPrice, productCategory, weight, dimensions);
+    public InfoStorageEquipment(String productName, int productPrice, ProductCategory productCategory, int numOfInventory, int weight, int dimensions, int capacity) {
+        super(productName, productPrice, productCategory, numOfInventory, weight, dimensions);
         this.capacity = capacity;
     }
 
