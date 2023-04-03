@@ -1,5 +1,9 @@
 package model.product;
 
+import model.request.Comment;
+
+import java.util.ArrayList;
+
 public abstract class Product {
     private final StringBuilder productID;
     private String productName;
@@ -7,14 +11,15 @@ public abstract class Product {
     private int productPrice;
     ProductCategory productCategory;
     private int numOfInventory;
+    private static ArrayList<Comment> comments= new ArrayList<>();
 
     public Product( String productName, int productPrice, ProductCategory productCategory, int numOfInventory) {
-        this.productID =IDMaker() ;
-        id++;
         this.productName = productName;
         this.productPrice = productPrice;
         this.productCategory = productCategory;
         this.numOfInventory = numOfInventory;
+        this.productID =IDMaker() ;
+        id++;
     }
     public StringBuilder IDMaker(){
         StringBuilder ID = new StringBuilder();
@@ -23,6 +28,9 @@ public abstract class Product {
         ID.append(id);
         return ID;
 
+    }
+    public static ArrayList<Comment> getComments(){
+        return comments;
     }
     public StringBuilder getProductID(){
         return productID;
@@ -44,5 +52,8 @@ public abstract class Product {
     }
     public int getNumOfInventory(){
         return numOfInventory;
+    }
+    public String toString(){
+        return "product ID : " + productID  +" product name : " + productName + " product price : " + productPrice + " product category : " + productCategory + " inventory number : " + numOfInventory;
     }
 }

@@ -14,5 +14,9 @@ public abstract class InfoStorageEquipment extends Digital {
     public int getCapacity(){
         return capacity;
     }
+    @Override
+    public String toString(){
+        return super.toString() + " capacity : " + capacity;
+    }
 
 }

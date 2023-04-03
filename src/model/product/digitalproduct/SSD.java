@@ -19,4 +19,8 @@ public class SSD extends InfoStorageEquipment {
     public double getWritingSpeed(){
         return writingSpeed;
     }
+    @Override
+    public String toString(){
+        return super.toString() + " reading speed : " + readingSpeed + " writing speed : " + writingSpeed;
+    }
 }

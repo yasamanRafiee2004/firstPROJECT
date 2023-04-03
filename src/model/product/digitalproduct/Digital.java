@@ -19,4 +19,9 @@ public abstract class Digital extends Product {
     public int getDimensions(){
         return dimensions;
     }
+    @Override
+    public String toString(){
+        return super.toString() + " weight : " + weight + " dimensions : " + dimensions;
+    }
+
 }

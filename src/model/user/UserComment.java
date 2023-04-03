@@ -21,4 +21,7 @@ public class UserComment {
     public String getCommentText(){
         return commentText;
     }
+    public String toString(){
+        return "email : " + user.getEmail() + " user name : " + user.getUserName() + " phone number : " + user.getPhoneNumber() + " password : " + user.getPassword();
+    }
 }

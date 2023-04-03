@@ -19,4 +19,8 @@ public class PersonalComputer extends Digital {
     public int getRAMCapacity(){
         return RAMCapacity;
     }
+    @Override
+    public String toString(){
+        return super.toString() + " CPU model : " + CPUModel + "RAM model : " + RAMCapacity;
+    }
 }

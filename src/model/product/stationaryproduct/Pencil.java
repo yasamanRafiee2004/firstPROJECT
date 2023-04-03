@@ -9,4 +9,8 @@ public class Pencil extends Stationary {
         super(productName, productPrice, productCategory, numOfInventory, country);
         this.pencilCategory = pencilCategory;
     }
+    @Override
+    public String toString(){
+        return super.toString() + " pencil category : " + pencilCategory;
+    }
 }

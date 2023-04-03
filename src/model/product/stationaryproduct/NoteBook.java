@@ -18,4 +18,8 @@ public class NoteBook extends Stationary {
     public String getPaperType(){
         return paperType;
     }
+    @Override
+    public String toString(){
+        return super.toString() + " number of paper : " + paperNum + " type of paper : " + paperType;
+    }
 }

@@ -1,5 +1,9 @@
 package view;
 
+import controller.AdminController;
+import model.user.Admin;
+import model.user.Customer;
+
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -23,6 +27,21 @@ public class LogIn {
         else {
             System.out.println("wrong information");
         }
-
+    }
+    public static void customerLogIn(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("please enter your user name.");
+        String userName = input.nextLine();
+        System.out.println("please enter your user pass.");
+        String userPass = input.nextLine();
+        for (Customer a : AdminController.getCustomers()){
+            if (Objects.equals(a.getUserName(), userName) && Objects.equals(a.getPassword(), userPass)){
+                System.out.println("welcome in!");
+                /////customer menu
+            }
+            else {
+                System.out.println("wrong information");
+            }
+        }
     }
 }

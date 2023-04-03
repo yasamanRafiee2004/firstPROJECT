@@ -14,4 +14,8 @@ public abstract class Vehicle extends Product {
     public String getCompanyName(){
         return companyName;
     }
+    @Override
+    public String toString(){
+        return super.toString() + " company name : " + companyName;
+    }
 }

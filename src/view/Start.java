@@ -1,5 +1,13 @@
 package view;
+
+import controller.AdminController;
+import model.user.Admin;
+import model.user.Customer;
+
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Start {
     public static void start() {
         boolean help1 = false;
@@ -12,13 +20,13 @@ public class Start {
         if (answer == 1) {
             LogIn.adminLogIn();
         }
-        if (answer == 2){
-
+        if (answer == 2) {
+            SignUp.signUp();;
         }
-        else {
+        if (answer != 1 && answer!=2){
             System.out.println("wrong command");
         }
     }
 
 
-    }
+}

@@ -14,4 +14,7 @@ public class USB extends InfoStorageEquipment {
     public int getVersion(){
         return version;
     }
+    public String toString(){
+        return super.toString() + " version : " + version;
+    }
 }

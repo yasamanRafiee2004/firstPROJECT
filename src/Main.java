@@ -1,10 +1,8 @@
-import controller.AdminController;
+
+import model.product.Product;
 import model.user.Admin;
-import view.AdminPage;
 import view.Start;
-
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -17,6 +15,9 @@ public class Main {
             if (answer == 1) {
               help3 = false;
             }
+        }
+        for (Product a : Admin.getProducts()){
+            System.out.println(a.toString());
         }
     }
 }

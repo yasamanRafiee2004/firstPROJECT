@@ -19,4 +19,8 @@ public class Food extends Product {
     public String getExpirationDate(){
         return expirationDate;
     }
+    @Override
+    public String toString(){
+        return  super.toString() + " production date : " + productionDate + " expiration date : " + expirationDate;
+    }
 }
