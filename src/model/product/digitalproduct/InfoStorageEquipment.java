@@ -6,8 +6,8 @@ import model.product.digitalproduct.Digital;
 public abstract class InfoStorageEquipment extends Digital {
     private final int capacity;
 
-    public InfoStorageEquipment(String productName, int productPrice, ProductCategory productCategory, int numOfInventory, int weight, int dimensions, int capacity) {
-        super(productName, productPrice, productCategory, numOfInventory, weight, dimensions);
+    public InfoStorageEquipment(String productName, double productPrice, ProductCategory productCategory, int numOfInventory, double scoreAverage, int weight, int dimensions, int capacity) {
+        super(productName, productPrice, productCategory, numOfInventory, scoreAverage, weight, dimensions);
         this.capacity = capacity;
     }
 

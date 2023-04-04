@@ -6,8 +6,8 @@ import model.product.digitalproduct.InfoStorageEquipment;
 public class USB extends InfoStorageEquipment {
      private final int version;
 
-    public USB(String productName, int productPrice, ProductCategory productCategory, int numOfInventory, int weight, int dimensions, int capacity, int version) {
-        super(productName, productPrice, productCategory, numOfInventory, weight, dimensions, capacity);
+    public USB(String productName, double productPrice, ProductCategory productCategory, int numOfInventory, double scoreAverage, int weight, int dimensions, int capacity, int version) {
+        super(productName, productPrice, productCategory, numOfInventory, scoreAverage, weight, dimensions, capacity);
         this.version = version;
     }
 

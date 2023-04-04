@@ -6,8 +6,8 @@ import model.product.ProductCategory;
 public abstract class Stationary extends Product {
     private final String country;
 
-    public Stationary(String productName, int productPrice, ProductCategory productCategory, int numOfInventory, String country) {
-        super(productName, productPrice, productCategory, numOfInventory);
+    public Stationary(String productName, double productPrice, ProductCategory productCategory, int numOfInventory, double scoreAverage, String country) {
+        super(productName, productPrice, productCategory, numOfInventory, scoreAverage);
         this.country = country;
     }
 

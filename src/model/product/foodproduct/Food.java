@@ -7,8 +7,8 @@ public class Food extends Product {
     private final String productionDate;
     private final String expirationDate;
 
-    public Food(String productName, int productPrice, ProductCategory productCategory, int numOfInventory, String productionDate, String expirationDate) {
-        super(productName, productPrice, productCategory, numOfInventory);
+    public Food(String productName, double productPrice, ProductCategory productCategory, int numOfInventory, double scoreAverage, String productionDate, String expirationDate) {
+        super(productName, productPrice, productCategory, numOfInventory, scoreAverage);
         this.productionDate = productionDate;
         this.expirationDate = expirationDate;
     }

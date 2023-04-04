@@ -7,8 +7,8 @@ public class PersonalComputer extends Digital {
     private final String CPUModel;
     private final int RAMCapacity;
 
-    public PersonalComputer(String productName, int productPrice, ProductCategory productCategory, int numOfInventory, int weight, int dimensions, String CPUModel, int RAMCapacity) {
-        super(productName, productPrice, productCategory, numOfInventory, weight, dimensions);
+    public PersonalComputer(String productName, double productPrice, ProductCategory productCategory, int numOfInventory, double scoreAverage, int weight, int dimensions, String CPUModel, int RAMCapacity) {
+        super(productName, productPrice, productCategory, numOfInventory, scoreAverage, weight, dimensions);
         this.CPUModel = CPUModel;
         this.RAMCapacity = RAMCapacity;
     }

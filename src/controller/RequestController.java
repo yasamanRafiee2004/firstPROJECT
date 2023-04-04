@@ -43,12 +43,13 @@ public class RequestController {
 
                     }
                     if (Admin.getRequests().get(i).getType() == RequestType.Comments) {
-                        for (Comment b : Product.getComments()) {
-                            if (b.isBought()) {
-                                Product.getComments().add(a.getComment());
+                        for (Product c : Admin.getProducts()) {
+                            for (Comment b : c.getComments()) {
+                                if (b.isBought()) {
+                                    c.getComments().add(a.getComment());
+                                }
                             }
                         }
-
                     }
                 }
             }

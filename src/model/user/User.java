@@ -2,9 +2,9 @@ package model.user;
 
 public abstract class User {
     private final String userName;
-    private final String email;
-    private final String phoneNumber;
-    private final String password;
+    private String email;
+    private String phoneNumber;
+    private  String password;
 
     public User(String userName, String email, String phoneNumber, String password) {
         this.userName = userName;
@@ -23,6 +23,15 @@ public abstract class User {
     }
     public String getPassword(){
         return password;
+    }
+    public void setEmail(String email1){
+        email= email1;
+    }
+    public void setPhoneNumber(String phoneNumber1){
+        phoneNumber=phoneNumber1;
+    }
+    public void setPassword(String password1){
+        password = password1;
     }
     public String toString(){
         return "email : " + email + " user name : " + userName + " phone number : " + phoneNumber + " password : " + password;

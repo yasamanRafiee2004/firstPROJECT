@@ -6,8 +6,8 @@ import model.product.ProductCategory;
 public abstract class Vehicle extends Product {
     private final String companyName;
 
-    public Vehicle(String productName, int productPrice, ProductCategory productCategory, int numOfInventory, String companyName) {
-        super(productName, productPrice, productCategory, numOfInventory);
+    public Vehicle(String productName, double productPrice, ProductCategory productCategory, int numOfInventory, double scoreAverage, String companyName) {
+        super(productName, productPrice, productCategory, numOfInventory, scoreAverage);
         this.companyName = companyName;
     }
 

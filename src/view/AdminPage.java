@@ -2,18 +2,6 @@ package view;
 
 import controller.AdminController;
 import controller.RequestController;
-import model.product.ProductCategory;
-import model.product.digitalproduct.PersonalComputer;
-import model.product.digitalproduct.SSD;
-import model.product.digitalproduct.USB;
-import model.product.foodproduct.Food;
-import model.product.stationaryproduct.NoteBook;
-import model.product.stationaryproduct.Pen;
-import model.product.stationaryproduct.Pencil;
-import model.product.stationaryproduct.PencilCategory;
-import model.product.vehicleproduct.Bike;
-import model.product.vehicleproduct.BikeType;
-import model.product.vehicleproduct.Car;
 import model.request.Request;
 import model.request.RequestType;
 import model.user.Admin;
@@ -23,19 +11,12 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class AdminPage {
-    static boolean startApp = true;
 
-    public static Boolean continue1(int answer) {
-        if (answer == 0) {
-            startApp = false;
-            return startApp;
-        }
-        return startApp;
-    }
 
     public static void getCommand() {
         Scanner input = new Scanner(System.in);
-        while (startApp) {
+        boolean adminMenu = true;
+        while (adminMenu) {
             System.out.println(" please enter a number");
             System.out.println("1.HELP!");
             System.out.println("2.I already know the process.");
@@ -62,9 +43,10 @@ public class AdminPage {
                             AdminController.addComputer(words, i);
                         } else if (Objects.equals(words[i + 1], "SSD")) {
                             AdminController.addSSD(words, i);
-                        } else if (Objects.equals(words[i + 1], "USB"))
+                        } else if (Objects.equals(words[i + 1], "USB")) {
                             AdminController.addUSB(words, i);
-                        } else if (Objects.equals(words[i + 1], "Car")) {
+                        }
+                        else if (Objects.equals(words[i + 1], "Car")) {
                             AdminController.addCar(words, i);
                         } else if (Objects.equals(words[i + 1], "Pencil")) {
                             AdminController.addPencil(words, i);
@@ -75,6 +57,7 @@ public class AdminPage {
                         } else {
                             help = false;
                         }
+                    }
                     if (Objects.equals(words[i], "Remove")) {
                         AdminController.removeProduct(words, i);
                     }
@@ -129,7 +112,10 @@ public class AdminPage {
                 }
             }
             System.out.println("If you want to continue enter 1 or If you want to exit enter 0 ");
-            startApp = continue1(input.nextInt());
+            int answer = input.nextInt();
+            if (answer == 0){
+                adminMenu = false;
+            }
         }
     }
 }

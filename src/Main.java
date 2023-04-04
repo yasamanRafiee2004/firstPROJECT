@@ -13,11 +13,8 @@ public class Main {
             System.out.println("1.yes 2.no");
             int answer = sc.nextInt();
             if (answer == 1) {
-              help3 = false;
+                help3 = false;
             }
-        }
-        for (Product a : Admin.getProducts()){
-            System.out.println(a.toString());
         }
     }
 }

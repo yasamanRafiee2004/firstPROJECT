@@ -7,8 +7,8 @@ public abstract class Digital extends Product {
     private final int weight;
     private final int dimensions;
 
-    public Digital(String productName, int productPrice, ProductCategory productCategory, int numOfInventory, int weight, int dimensions) {
-        super(productName, productPrice, productCategory, numOfInventory);
+    public Digital(String productName, double productPrice, ProductCategory productCategory, int numOfInventory, double scoreAverage, int weight, int dimensions) {
+        super(productName, productPrice, productCategory, numOfInventory, scoreAverage);
         this.weight = weight;
         this.dimensions = dimensions;
     }
