@@ -1,13 +1,14 @@
 package view;
 
 import model.user.Admin;
+import model.user.Customer;
 
 import java.util.Scanner;
 
 public class ProductMenu {
 
     public static void productCommand() {
-        boolean product = false;
+        boolean product = true;
         while (product) {
             System.out.println("what do you want to do?");
             System.out.println("1.show all the products in pages");
@@ -20,7 +21,8 @@ public class ProductMenu {
             System.out.println("8.filter product by CPU model");
             System.out.println("9.filter product by RAM capacity");
             System.out.println("10.filter product by CPU MODEL and RAM capacity");
-            System.out.println("11.search a product by it's name.");
+            System.out.println("11.filter product by bike type");
+            System.out.println("12.search a product by it's name.");
             Scanner scanner = new Scanner(System.in);
             int answer = scanner.nextInt();
             switch (answer) {
@@ -70,7 +72,10 @@ public class ProductMenu {
                     ProductPage.RAMCPUFilter();
                     break;
                 }
-                case 11: {
+                case 11:{
+                    ProductPage.bikeTypeFilter();
+                }
+                case 12: {
                     ProductPage.searchProduct();
                     break;
                 }
@@ -79,7 +84,7 @@ public class ProductMenu {
                     break;
                 }
             }
-            System.out.println("If you want to continue in customer menu enter 1 or If you want to exit enter 0 ");
+            System.out.println("If you want to continue in product menu enter 1 or If you want to exit enter 0 ");
             int answer1 = scanner.nextInt();
             if (answer1 == 0) {
                 product = false;

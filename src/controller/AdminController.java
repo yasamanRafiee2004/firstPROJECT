@@ -27,9 +27,6 @@ public class AdminController {
         return customers;
     }
 
-    public void addCustomers(Customer customer) {
-        customers.add(customer);
-    }
 
     public static void addCar(String[] words, int i) {
         String name = words[i + 2];
@@ -145,6 +142,7 @@ public class AdminController {
             if (product.getProductName().equals(words[i + 1])) {
                 if (product.getProductPrice() == productPrice) {
                     Admin.getProducts().remove(product);
+                    break;
                 }
             }
         }
@@ -158,6 +156,8 @@ public class AdminController {
                     product.setProductName(words[i + 3]);
                     product.setProductPrice(Integer.parseInt(words[i + 4]));
                     product.setNumOfInventory(Integer.parseInt(words[i + 5]));
+                    product.setProductID(words[i+3]);
+                    break;
                 }
             }
         }
