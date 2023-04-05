@@ -5,7 +5,7 @@ import model.product.Product;
 import java.util.ArrayList;
 
 public class PurchaseInVoice {
-    private StringBuilder puchaseID = new StringBuilder();
+    private final StringBuilder puchaseID ;
     private final String date;
     private final double price;
     private  ArrayList<Product> boughtProducts = new ArrayList<>();
@@ -30,7 +30,7 @@ public class PurchaseInVoice {
         return price;
     }
     public  String toString(){
-        return "product Info:" +getBoughtProducts().toString()+"shopping date : " + date + " price : " +price;
+        return "product Info:" +getBoughtProducts().toString()+"shopping date : " + date + "purchase ID :" +puchaseID;
     }
 
 }

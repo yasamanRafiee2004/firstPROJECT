@@ -1,11 +1,8 @@
 package controller;
 
 import model.product.Product;
-import model.user.Admin;
 import model.user.Customer;
 import model.user.PurchaseInVoice;
-
-import java.util.ArrayList;
 
 public class CustomerController {
     public static void addToCarts(Product product, Customer customer) {
@@ -16,13 +13,6 @@ public class CustomerController {
         customer.getCarts().removeIf(a -> a.getProductID().toString().equals(ID));
     }
 
-    public static double showCredit() {
-        double balance = 0;
-        for (Customer a : AdminController.getCustomers()) {
-            balance = a.getCreditBalance();
-        }
-        return balance;
-    }
 
     public static int completeThePurchase(Customer customer) {
         double help = 0;

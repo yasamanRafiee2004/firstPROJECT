@@ -3,7 +3,7 @@ package model.product.vehicleproduct;
 import model.product.ProductCategory;
 
 public class Bike extends Vehicle {
-   private BikeType bikeType;
+   private final BikeType bikeType;
 
     public Bike(String productName, double productPrice, ProductCategory productCategory, int numOfInventory, double scoreAverage, String companyName, BikeType bikeType) {
         super(productName, productPrice, productCategory, numOfInventory, scoreAverage, companyName);

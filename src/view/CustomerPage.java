@@ -17,10 +17,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CustomerPage {
-    public void findCustomer() {
-        Customer a = SignUp.signUp();
-        customerCase(a);
-    }
 
 
     public static void customerCase(Customer customer) {
@@ -117,7 +113,10 @@ public class CustomerPage {
         boolean edit = true;
         while (edit) {
             System.out.println("what do you want to edit?");
-            System.out.println("1.email" + "\n" + "2.phone number" + "\n" + "3.password");
+            System.out.println("""
+                    1.email
+                    2.phone number
+                    3.password""");
             Scanner sc = new Scanner(System.in);
             int input = sc.nextInt();
             switch (input) {
@@ -126,7 +125,6 @@ public class CustomerPage {
                     sc.nextLine();
                     String email = sc.nextLine();
                     boolean matching;
-                    boolean help = true;
                     Pattern pattern = Pattern.compile("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@(gmail|yahoo)\\.com$");
                     Matcher matcher = pattern.matcher(email);
                     matching = matcher.find();
@@ -146,7 +144,6 @@ public class CustomerPage {
                     sc.nextLine();
                     String phoneNumber = sc.nextLine();
                     boolean matching1;
-                    boolean help = true;
                     Pattern pattern1 = Pattern.compile("^(\\+98|0)?9\\d{9}$");
                     Matcher matcher1 = pattern1.matcher(phoneNumber);
                     matching1 = matcher1.find();
@@ -178,9 +175,7 @@ public class CustomerPage {
                     Matcher matcher2 = pattern2.matcher(password);
                     matching2 = matcher2.find();
                     if (matching2) {
-                        for (Customer a : AdminController.getCustomers()) {
-                            customer.setPassword(password);
-                        }
+                        customer.setPassword(password);
                     }
                     break;
                 }
@@ -261,7 +256,7 @@ public class CustomerPage {
             if (score >= 0 && score <= 5) {
                 String scoringResult = ProductController.score(ID, score);
                 System.out.println(scoringResult);
-                scoreBool=false;
+                scoreBool = false;
             } else {
                 System.out.println("the score you entered is not between 0 and 5!");
                 System.out.println("do you want to try again?");

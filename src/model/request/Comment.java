@@ -3,8 +3,8 @@ package model.request;
 import model.user.Customer;
 
 public class Comment {
-   private Customer customer;
-   private StringBuilder productID;
+   private final Customer customer;
+   private final StringBuilder productID;
     private String text;
     private boolean bought;
 
@@ -25,9 +25,6 @@ public class Comment {
     }
     public void setText(String text1){
         text = text1;
-    }
-    public boolean isBought(){
-        return bought;
     }
     public String toString(){
         return "customer username: " + customer.getUserName() + " product ID : " + productID + " text : " + text ;

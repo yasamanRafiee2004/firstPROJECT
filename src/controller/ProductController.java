@@ -7,10 +7,8 @@ import model.product.vehicleproduct.Bike;
 import model.product.vehicleproduct.BikeType;
 import model.request.Comment;
 import model.user.Admin;
-import model.user.Customer;
-
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class ProductController {
     public static ArrayList<Product> nameFilter(String name) {

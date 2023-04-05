@@ -3,8 +3,6 @@ package view;
 import controller.AdminController;
 import controller.ProductController;
 import model.product.Product;
-import model.product.ProductCategory;
-import model.product.digitalproduct.PersonalComputer;
 import model.user.Admin;
 import model.user.Customer;
 

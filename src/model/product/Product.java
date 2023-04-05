@@ -9,9 +9,9 @@ public abstract class Product {
     private String productName;
     private static int id = 1;
     private double productPrice;
-    private ProductCategory productCategory;
+    private final ProductCategory productCategory;
     private int numOfInventory;
-    private ArrayList<Comment> comments= new ArrayList<>();
+    private final ArrayList<Comment> comments= new ArrayList<>();
     private double scoreAverage;
     private int counter;
 
