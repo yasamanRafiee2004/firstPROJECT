@@ -8,7 +8,7 @@ public class PurchaseInVoice {
     private final StringBuilder puchaseID ;
     private final String date;
     private final double price;
-    private  ArrayList<Product> boughtProducts = new ArrayList<>();
+    private final ArrayList<Product> boughtProducts = new ArrayList<>();
 
     public PurchaseInVoice(StringBuilder productID, String date, double price) {
         this.puchaseID = productID;
@@ -32,5 +32,4 @@ public class PurchaseInVoice {
     public  String toString(){
         return "product Info:" +getBoughtProducts().toString()+"shopping date : " + date + "purchase ID :" +puchaseID;
     }
-
 }
