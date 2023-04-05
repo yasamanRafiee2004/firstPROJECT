@@ -1,6 +1,7 @@
 package view;
 
 import controller.AdminController;
+import controller.CustomerController;
 import controller.RequestController;
 import model.request.Request;
 import model.request.RequestType;
@@ -14,8 +15,9 @@ import java.util.regex.Pattern;
 
 public class SignUp {
 
-    public static void signUp() {
+    public static Customer signUp() {
         Scanner input = new Scanner(System.in);
+        String helpUser = null;
         boolean signUp = true;
         while (signUp) {
             System.out.println("please enter your email and phone number and user name and password in order");
@@ -63,6 +65,7 @@ public class SignUp {
             Matcher matcher2 = pattern2.matcher(password);
             matching2 = matcher2.find();
             if (matching2 && matching1 && matching) {
+                helpUser = userName;
                 if (help) {
                     Customer customer = new Customer(userName, email, phoneNumber, password, 0);
                     Request request = new Request(customer, RequestType.SignUps);
@@ -77,5 +80,6 @@ public class SignUp {
                 System.out.println("wrong information format!");
             }
         }
+        return CustomerController.returningCustomer(helpUser);
     }
 }

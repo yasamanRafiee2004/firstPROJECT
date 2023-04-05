@@ -7,6 +7,7 @@ import model.request.RequestType;
 import model.user.Admin;
 import model.user.Customer;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -24,10 +25,9 @@ public class AdminPage {
             if (firstCommand == 1) {
                 System.out.println("if you want to add product :" + "\n" + "enter : Add + the product type + the properties of the product.");
                 System.out.println("if you want to remove product :" + "\n" + "enter : Remove + product name + product price");
-                System.out.println("if you want to edit product :" + "\n" + "enter : Edit + recent name + recent price + after name +after price + after inventory.");
+                System.out.println("if you want to edit product :" + "\n" + "enter : Edit + recent name + recent price + after editing name +after editing price + after editing inventory.");
                 System.out.println("if you want to view the customers list :" + "\n" + "enter : Show Customers");
-                System.out.println("if you want to view the requests list :" + "\n" + "enter : Show Requests");
-                System.out.println("if you want to answer the requests :" + "\n" + "enter : Answer");
+                System.out.println("if you want to view the requests list and answer them :" + "\n" + "enter : Show Requests");
             } else if (firstCommand == 2) {
                 boolean help = true;
                 input.nextLine();
@@ -45,8 +45,7 @@ public class AdminPage {
                             AdminController.addSSD(words, i);
                         } else if (Objects.equals(words[i + 1], "USB")) {
                             AdminController.addUSB(words, i);
-                        }
-                        else if (Objects.equals(words[i + 1], "Car")) {
+                        } else if (Objects.equals(words[i + 1], "Car")) {
                             AdminController.addCar(words, i);
                         } else if (Objects.equals(words[i + 1], "Pencil")) {
                             AdminController.addPencil(words, i);
@@ -66,55 +65,67 @@ public class AdminPage {
                     }
                     if (Objects.equals(words[i], "Show")) {
                         if (Objects.equals(words[i + 1], "Customers")) {
-                            for (Customer customer : AdminController.getCustomers()) {
-                                System.out.println(customer.toString());
+                            if (AdminController.getCustomers().size() == 0) {
+                                System.out.println("no customer exists yet!");
+                            } else {
+                                for (Customer customer : AdminController.getCustomers()) {
+                                    System.out.println(customer.toString());
+                                }
                             }
                         } else if (Objects.equals(words[i + 1], "Requests")) {
-                            for (Request a : Admin.getRequests()) {
-                                if (a.getType() == RequestType.valueOf("SignUps")) {
-                                    System.out.println("signup requests" + a.getCustomer().toString() + "\n");
-                                }
-                                if (a.getType() == RequestType.valueOf("ChargeCredit")) {
-                                    System.out.println("charging credit requests" + a.getChargeCredit().toString() + "\n");
-                                }
-                                if (a.getType() == RequestType.valueOf("Comments")) {
-                                    System.out.println("comment requests" + a.getComment().toString() + "\n");
-                                }
-                            }
+                            requests(Admin.getRequests());
                         }
-                    }
-                    if (Objects.equals(words[i], "Answer")) {
-                        int count = 1;
-                        for (Request a : Admin.getRequests()) {
-                            if (a.getType() == RequestType.valueOf("SignUps")) {
-                                System.out.println(count + ".signup requests" + a.getCustomer().toString() + " ID : " + a.getRequestID() + "\n");
-                                count++;
-                            }
-                            if (a.getType() == RequestType.valueOf("ChargeCredit")) {
-                                System.out.println(count + ".charging credit requests" + a.getChargeCredit().toString() + " ID : " + a.getRequestID() + "\n");
-                                count++;
-                            }
-                            if (a.getType() == RequestType.valueOf("Comments")) {
-                                System.out.println(count + ".comment requests" + a.getComment().toString() + " ID : " + a.getRequestID() + "\n");
-                                count++;
-                            }
-                        }
-                        System.out.println("please enter the ID of the requests that you want to accept.");
-                        String ID = input.nextLine();
-                        String[] IDs = ID.split("\\s");
-                        RequestController.typeChecker(IDs);
-                        RequestController.removeRequest(IDs);
-
                     }
                     if (!help) {
                         System.out.println("wrong command");
                     }
                 }
             }
-            System.out.println("If you want to continue enter 1 or If you want to exit enter 0 ");
+            System.out.println("If you want to continue in admin menu enter 1 or If you want to exit enter 0 ");
             int answer = input.nextInt();
-            if (answer == 0){
+            if (answer == 0) {
                 adminMenu = false;
+            }
+        }
+    }
+
+    public static void requests(ArrayList<Request> requests) {
+        Scanner input = new Scanner(System.in);
+        for (Request a : requests) {
+            if (a.getType() == RequestType.SignUps) {
+                System.out.println("signup requests" + a.getCustomer().toString() + " ID : " + a.getRequestID() + "\n");
+            }
+            if (a.getType() == RequestType.ChargeCredit) {
+                System.out.println("charging credit requests" + a.getChargeCredit() + " ID : " + a.getRequestID() + "\n");
+
+            }
+            if (a.getType() == RequestType.Comments) {
+                System.out.println("comment requests" + a.getComment().toString() + " ID : " + a.getRequestID() + "\n");
+
+            }
+        }
+        if (requests.size() == 0) {
+            System.out.println("you don't have any requests!");
+        } else {
+            System.out.println("do you want to accept request or reject it?");
+            System.out.println("1.accept 2.reject");
+            int userAnswer = input.nextInt();
+            if (userAnswer == 1) {
+                System.out.println("please enter the ID of the requests that you want to accept.");
+                input.nextLine();
+                String ID = input.nextLine();
+                String[] IDs = ID.split("\\s");
+                RequestController.accept(IDs);
+            }
+            if (userAnswer == 2) {
+                System.out.println("please enter the ID of the requests that you don't want to accept.");
+                input.nextLine();
+                String ID1 = input.nextLine();
+                String[] IDs1 = ID1.split("\\s");
+                RequestController.notAccept(IDs1);
+            }
+            if (userAnswer != 1 && userAnswer != 2) {
+                System.out.println("wrong command!");
             }
         }
     }

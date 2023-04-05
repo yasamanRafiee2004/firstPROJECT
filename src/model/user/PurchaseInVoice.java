@@ -5,34 +5,32 @@ import model.product.Product;
 import java.util.ArrayList;
 
 public class PurchaseInVoice {
-    private final int puchaseID;
-    private static int id = 1;
+    private StringBuilder puchaseID = new StringBuilder();
     private final String date;
-    private final int price;
-    private ArrayList<Product> boughtProducts = new ArrayList<>();
+    private final double price;
+    private  ArrayList<Product> boughtProducts = new ArrayList<>();
 
-    public PurchaseInVoice(int productID, String date, int price) {
-        this.puchaseID = id;
-        id++;
+    public PurchaseInVoice(StringBuilder productID, String date, double price) {
+        this.puchaseID = productID;
         this.date = date;
         this.price = price;
     }
 
-    public ArrayList<Product> getBoughtProducts() {
+    public  ArrayList<Product> getBoughtProducts() {
         return boughtProducts;
     }
 
-    public int getProductID(){
+    public StringBuilder getProductID(){
         return puchaseID;
     }
     public String getDate(){
         return date;
     }
-    public int getPrice(){
+    public double getPrice(){
         return price;
     }
     public  String toString(){
-        return "shopping date : " + date + " price : " +price;
+        return "product Info:" +getBoughtProducts().toString()+"shopping date : " + date + " price : " +price;
     }
 
 }

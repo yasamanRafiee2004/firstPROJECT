@@ -1,6 +1,7 @@
 
-import model.product.Product;
-import model.user.Admin;
+import controller.AdminController;
+import model.user.Customer;
+import view.SingleProductPage;
 import view.Start;
 import java.util.Scanner;
 public class Main {

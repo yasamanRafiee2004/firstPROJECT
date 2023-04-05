@@ -20,6 +20,11 @@ public class LogIn {
                 logIn = false;
             } else {
                 System.out.println("wrong information");
+                System.out.println("If you want to try again enter 1 or If you want to exit enter 0 ");
+                int answer = input.nextInt();
+                if (answer == 0) {
+                    logIn = false;
+                }
             }
         }
     }
@@ -34,8 +39,8 @@ public class LogIn {
             for (Customer a : AdminController.getCustomers()) {
                 if (Objects.equals(a.getUserName(), userName) && Objects.equals(a.getPassword(), userPass)) {
                     System.out.println("welcome in!");
-                    CustomerPage.customerCase();
-                    logIn=false;
+                            CustomerPage.customerCase(a);
+                    logIn = false;
                 } else {
                     System.out.println("wrong information");
                 }

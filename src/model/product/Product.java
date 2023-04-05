@@ -5,7 +5,7 @@ import model.request.Comment;
 import java.util.ArrayList;
 
 public abstract class Product {
-    private final StringBuilder productID;
+    private StringBuilder productID;
     private String productName;
     private static int id = 1;
     private double productPrice;
@@ -13,6 +13,7 @@ public abstract class Product {
     private int numOfInventory;
     private ArrayList<Comment> comments= new ArrayList<>();
     private double scoreAverage;
+    private int counter;
 
     public Product(String productName, double productPrice, ProductCategory productCategory, int numOfInventory, double scoreAverage) {
         this.productName = productName;
@@ -20,11 +21,12 @@ public abstract class Product {
         this.productCategory = productCategory;
         this.numOfInventory = numOfInventory;
         this.scoreAverage = scoreAverage;
-        this.productID = IDMaker();
+        this.counter=0;
+        this.productID = IDMaker(productName);
         id++;
     }
 
-    public StringBuilder IDMaker(){
+    public StringBuilder IDMaker(String productName){
         StringBuilder ID = new StringBuilder();
         ID.append(productName);
         ID.append("-");
@@ -32,7 +34,7 @@ public abstract class Product {
         return ID;
 
     }
-    public ArrayList<Comment> getComments(){
+    public  ArrayList<Comment> getComments(){
         return comments;
     }
     public StringBuilder getProductID(){
@@ -61,6 +63,21 @@ public abstract class Product {
     }
     public ProductCategory getProductCategory(){
         return productCategory;
+    }
+    public void setInventory(int number){
+        this.numOfInventory=number;
+    }
+    public int getCounter(){
+        return counter;
+    }
+    public void setCounter(int counter1){
+        counter = counter1;
+    }
+    public void setScoreAverage(double average){
+        scoreAverage = average;
+    }
+    public void setProductID(String productName1){
+        productID = IDMaker(productName1);
     }
     public String toString(){
         return "product ID : " + productID  +" product name : " + productName + " product price : " + productPrice + " product category : " + productCategory + " inventory number : " + numOfInventory +"score average :" + scoreAverage;

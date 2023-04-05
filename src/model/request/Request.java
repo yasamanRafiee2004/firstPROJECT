@@ -6,9 +6,9 @@ public class Request {
     private Customer customer;
     private RequestType type;
     private Comment comment;
-    private ChargeCredit chargeCredit;
+    private double chargeCredit;
     private static int helper = 1;
-    private static int requestID;
+    private int requestID;
 
     public Request(Customer customer, RequestType type) {
         this.customer = customer;
@@ -29,8 +29,14 @@ public class Request {
     public Comment getComment(){
         return comment;
     }
-    public ChargeCredit getChargeCredit(){
+    public double getChargeCredit(){
         return chargeCredit;
+    }
+    public void setChargeCredit(double money){
+        chargeCredit = money;
+    }
+    public void setComment(Comment comment1){
+        comment = comment1;
     }
 
 }

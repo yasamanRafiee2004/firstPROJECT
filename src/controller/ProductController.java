@@ -3,7 +3,11 @@ package controller;
 import model.product.Product;
 import model.product.ProductCategory;
 import model.product.digitalproduct.PersonalComputer;
+import model.product.vehicleproduct.Bike;
+import model.product.vehicleproduct.BikeType;
+import model.request.Comment;
 import model.user.Admin;
+import model.user.Customer;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -81,6 +85,18 @@ public class ProductController {
         return CPUFilter;
     }
 
+    public static ArrayList<Product> bikeTypeFilter(String type) {
+        ArrayList<Product> typeFilter = new ArrayList<>();
+        for (Product a : Admin.getProducts()) {
+            if (a instanceof Bike) {
+                if (((Bike) a).getBikeType() == BikeType.valueOf(type)) {
+                    typeFilter.add(a);
+                }
+            }
+        }
+        return typeFilter;
+    }
+
     public static ArrayList<Product> RAMFilter(int RAMCapacity) {
         ArrayList<Product> RAMFilter = new ArrayList<>();
         for (Product a : Admin.getProducts()) {
@@ -112,5 +128,29 @@ public class ProductController {
             }
         }
         return "this product does not exist";
+    }
+
+    public static void addComment(Product product, Comment comment) {
+        product.getComments().add(comment);
+    }
+
+    public static Product findProduct(String ID) {
+        for (Product a : Admin.getProducts()) {
+            if (a.getProductID().toString().equals(ID)) {
+                return a;
+            }
+        }
+        return null;
+    }
+
+    public static String score(String ID, double score) {
+        Product product = findProduct(ID);
+        if (product != null) {
+            double updatedScore = ((product.getCounter() * product.getScoreAverage()) + score) /(product.getCounter() + 1);
+            product.setScoreAverage(updatedScore);
+            product.setCounter(product.getCounter() + 1);
+            return "your score has been recorded successfully!";
+        }
+        return "this product does not exist in your purchase";
     }
 }

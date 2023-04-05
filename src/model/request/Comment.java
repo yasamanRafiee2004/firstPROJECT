@@ -23,11 +23,14 @@ public class Comment {
     public String getText(){
         return text;
     }
+    public void setText(String text1){
+        text = text1;
+    }
     public boolean isBought(){
         return bought;
     }
     public String toString(){
-        return "customer : " + customer + " product ID : " + productID + " text : " + text ;
+        return "customer username: " + customer.getUserName() + " product ID : " + productID + " text : " + text ;
     }
 
 }
