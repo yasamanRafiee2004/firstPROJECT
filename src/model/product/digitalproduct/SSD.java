@@ -1,7 +1,6 @@
 package model.product.digitalproduct;
 
 import model.product.ProductCategory;
-import model.product.digitalproduct.InfoStorageEquipment;
 
 public class SSD extends InfoStorageEquipment {
     private final double readingSpeed;

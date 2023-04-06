@@ -5,7 +5,6 @@ import controller.CustomerController;
 import controller.RequestController;
 import model.request.Request;
 import model.request.RequestType;
-import model.user.Admin;
 import model.user.Customer;
 
 import java.util.Objects;

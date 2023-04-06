@@ -1,7 +1,6 @@
 package view;
 
 import controller.AdminController;
-import model.user.Admin;
 import model.user.Customer;
 
 import java.util.Objects;

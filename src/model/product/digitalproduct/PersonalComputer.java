@@ -1,7 +1,5 @@
 package model.product.digitalproduct;
-
 import model.product.ProductCategory;
-import model.product.digitalproduct.Digital;
 
 public class PersonalComputer extends Digital {
     private final String CPUModel;

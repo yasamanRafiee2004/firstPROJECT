@@ -15,13 +15,10 @@ import model.product.vehicleproduct.BikeType;
 import model.product.vehicleproduct.Car;
 import model.user.Admin;
 import model.user.Customer;
-import view.SignUp;
-
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class AdminController {
-    private static ArrayList<Customer> customers = new ArrayList<>();
+    private static final ArrayList<Customer> customers = new ArrayList<>();
 
     public static ArrayList<Customer> getCustomers() {
         return customers;

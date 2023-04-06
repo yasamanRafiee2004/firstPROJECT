@@ -12,9 +12,6 @@ public class Car extends Vehicle {
         this.automatic = automatic;
     }
 
-    public int getEngineCapacity(){
-        return engineCapacity;
-    }
     @Override
     public String toString(){
         return super.toString() + " engine capacity : " + engineCapacity + "is the car automatic? " + automatic;
