@@ -19,7 +19,7 @@ public class SingleProductPage {
         while (help) {
             for (Product a : Admin.getProducts()) {
                 if (productID.equals(a.getProductID().toString())) {
-                    System.out.println(a);
+                    System.out.println(a.toString());
                 }
             }
             System.out.println("what do you want to do?");

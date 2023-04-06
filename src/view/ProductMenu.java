@@ -1,6 +1,7 @@
 package view;
 
 import model.user.Admin;
+import model.user.Customer;
 
 import java.util.Scanner;
 
